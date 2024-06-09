@@ -20,7 +20,7 @@
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:mysql://localhost:3306/terapia" />
 			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="ququ.1717" />
+			<property name="javax.persistence.jdbc.password" value="root" />
 
 			<!-- Configurações do Hibernate -->
 			<property name="hibernate.dialect"
