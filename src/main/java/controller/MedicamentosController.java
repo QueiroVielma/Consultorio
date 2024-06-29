@@ -16,4 +16,8 @@ public class MedicamentosController {
     public List<MedicamentosEntity> findAll(){ return medicamentosService.findAll();}
 
     public void medicamentoPaciente(Long usuarioId, Long medicamentoId) {medicamentosService.crirMedicamentoPaciente( usuarioId, medicamentoId);    }
+    
+    public MedicamentosEntity finById (Long id){return medicamentosService.findById(id);}
+    
+    public void deletarAgenda (Long id){ medicamentosService.deletemedicamento(id);}
 }

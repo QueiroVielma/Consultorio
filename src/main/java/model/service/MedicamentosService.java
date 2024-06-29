@@ -17,6 +17,8 @@ public class MedicamentosService {
     }
 
     public List<MedicamentosEntity> findAll() {return medicamentosRepository.findAll();    }
+    
+    public MedicamentosEntity findById(Long id) {return (MedicamentosEntity) medicamentosRepository.findById(id);    }
 
     public void crirMedicamentoPaciente(Long usuarioId, Long medicamentoId) {
         PacientesEntity paciente = (PacientesEntity) pacientesRepository.findById(usuarioId);
@@ -36,4 +38,6 @@ public class MedicamentosService {
         }
 
     }
+    
+    public void deletemedicamento(Long id) {medicamentosRepository.delete(id);}
 }

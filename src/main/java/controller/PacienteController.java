@@ -13,4 +13,6 @@ public class PacienteController {
     public List<PacientesEntity> findAll(){return pacienteService.findAll();}
 
     public PacientesEntity finById (Long id){return pacienteService.finById(id);}
+    
+    public PacientesEntity update(PacientesEntity paciente){return pacienteService.update(paciente);}
 }

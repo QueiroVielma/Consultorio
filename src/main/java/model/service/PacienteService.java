@@ -6,6 +6,7 @@ import model.entities.ResponsaveisEntity;
 import model.repositories.PacientesRepository;
 
 import java.util.List;
+import model.entities.AgendasEntity;
 
 public class PacienteService {
 
@@ -21,9 +22,10 @@ public class PacienteService {
         if (responsavel != null) {
             ResponsaveisEntity responsavelEmBD = responsavelService.criarResponsavel(responsavel, paciente);
             paciente.setResponsavel(responsavelEmBD);
+            pacientesRepository.merge(paciente);
+        }else {
+            pacientesRepository.create(paciente);
         }
-
-        pacientesRepository.merge(paciente);
         System.out.println("depois de pegar o cep");
 
         EnderecosEntity enderecoCEP = enderecosService.criarEndereco(paciente, enderecos.getCep(), enderecos.getNumero());
@@ -56,4 +58,6 @@ public class PacienteService {
     public List<PacientesEntity> findAll(){return pacientesRepository.findAll();}
 
     public PacientesEntity finById(Long id) {return (PacientesEntity) pacientesRepository.findById(id);}
+    
+    public PacientesEntity update(PacientesEntity paciente){return (PacientesEntity) pacientesRepository.update(paciente);}
 }

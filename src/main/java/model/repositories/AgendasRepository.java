@@ -1,5 +1,6 @@
 package model.repositories;
 
+import java.util.Date;
 import model.entities.AgendasEntity;
 
 import javax.persistence.EntityManager;
@@ -51,5 +52,18 @@ public class AgendasRepository implements BasicCrud{
     public List<AgendasEntity> findAll(){
         return em.createQuery("SELECT a FROM AgendasEntity a",AgendasEntity.class).getResultList();
     }
+    
+    public List<AgendasEntity> agendasPendentes(){
+        return em.createQuery("SELECT a FROM AgendasEntity a WHERE a.prontuario IS NULL", AgendasEntity.class).getResultList();
+    }
+    
+    public List<AgendasEntity> prontuariosFeitos(){
+        return em.createQuery("SELECT a FROM AgendasEntity a WHERE a.prontuario IS NOT NULL", AgendasEntity.class).getResultList();
+    }
+    
+    public List<AgendasEntity> agendamentosProximos() {
+        
 
+        return em.createQuery("SELECT a FROM AgendasEntity a WHERE a.agendamento > CURRENT_DATE() ORDER BY a.agendamento", AgendasEntity.class).getResultList();
+    }
 }

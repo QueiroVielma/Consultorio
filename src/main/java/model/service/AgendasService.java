@@ -42,17 +42,7 @@ public class AgendasService {
         }
     }
 
-    public void deleteAgendamento(Long id) {
-        AgendasEntity agendamento = (AgendasEntity) agendasRepository.findById(id);
-        System.out.println("Deseja deletar o agendamento de: " +agendamento.getPacientes().getNome()+ "as" + agendamento.getAgendamento().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-        Scanner scanner = new Scanner(System.in);
-        String validar= scanner.nextLine();
-        if(Objects.equals(validar.toLowerCase(), "sim")){
-            agendasRepository.delete(id);
-            System.out.println("Agendamento Cancelado");
-        }
-
-    }
+    public void deleteAgendamento(Long id) {agendasRepository.delete(id);}
 
     public void fazerProntuario(Long id, String prontuario) {
         AgendasEntity agendamento = (AgendasEntity) agendasRepository.findById(id);
@@ -62,5 +52,15 @@ public class AgendasService {
     }
 
     public List<AgendasEntity> findAll(){return agendasRepository.findAll();}
+    
+    public AgendasEntity upDate(AgendasEntity agenda){return (AgendasEntity) agendasRepository.update(agenda);}
+    
+    public AgendasEntity finById(Long id) {return (AgendasEntity) agendasRepository.findById(id);}
+
+    public List<AgendasEntity> agendasPendentes(){return agendasRepository.agendasPendentes();}
+    
+    public List<AgendasEntity> prontuariosFeitos(){return agendasRepository.prontuariosFeitos();}
+    
+    public List<AgendasEntity> agendamentosProximos(){return agendasRepository.agendamentosProximos();}
 
 }

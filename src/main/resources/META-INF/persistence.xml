@@ -24,12 +24,12 @@
 
 			<!-- Configurações do Hibernate -->
 			<property name="hibernate.dialect"
-				value="org.hibernate.dialect.MySQLDialect" />
+				value="org.hibernate.dialect.MySQL8Dialect" />
 			<property name="hibernate.show_sql" value="true" /> <!-- Para exibir
 			SQL no console -->
 			<property name="hibernate.hbm2ddl.auto" value="update" /> <!--
 			Atualiza o esquema do banco de dados -->
-			<property name="hibernate.default_schema" value="teste" /> <!--
+			<property name="hibernate.default_schema" value="default" /> <!--
 			Define o schema padrão -->
 		</properties>
 	</persistence-unit>

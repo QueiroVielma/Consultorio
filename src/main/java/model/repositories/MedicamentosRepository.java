@@ -44,7 +44,7 @@ public class  MedicamentosRepository implements BasicCrud{
     @Override
     public void delete(Long id) {
         em.getTransaction().begin();
-        var medicamento = (MedicamentosEntity) findById(id);
+        MedicamentosEntity medicamento = (MedicamentosEntity) findById(id);
         em.remove(medicamento);
         em.getTransaction().commit();
     }
